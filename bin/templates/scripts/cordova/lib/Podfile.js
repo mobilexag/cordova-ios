@@ -62,12 +62,16 @@ function Podfile (podFilePath, projectName, minDeploymentTarget) {
         this.clear();
         this.write();
     } else {
-        events.emit('verbose', 'Podfile found in platforms/ios');
+        events.emit('verbose', util.format('Podfile found in platforms/ios', this.path));
         // parse for pods
         var fileText = fs.readFileSync(this.path, 'utf8');
+        events.emit('verbose', util.format('Podfile content', fileText));
         this.declarations = this.__parseForDeclarations(fileText);
+        events.emit('verbose', util.format('Pod declarations', this.declarations));
         this.sources = this.__parseForSources(fileText);
+        events.emit('verbose', util.format('Pod sources', this.sources));
         this.pods = this.__parseForPods(fileText);
+        events.emit('verbose', util.format('Pods', this.pods));
     }
 }
 
