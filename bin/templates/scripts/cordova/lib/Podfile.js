@@ -33,6 +33,7 @@ Podfile.declarationRegexpMap = {
 };
 
 function Podfile (podFilePath, projectName, minDeploymentTarget) {
+    console.trace('Podfile', minDeploymentTarget);
     this.declarationToken = '##INSERT_DECLARATION##';
     this.sourceToken = '##INSERT_SOURCE##';
     this.podToken = '##INSERT_POD##';
